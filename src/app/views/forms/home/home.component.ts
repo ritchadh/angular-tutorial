@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  title = 'Forms';
+  submenu = [{
+    name: 'Template Driven',
+    path: 'template-driven'
+  }, {
+    name: 'Model Driven',
+    path: 'model-driven'
+  }];
   constructor() { }
-
   ngOnInit() {
   }
-
 }

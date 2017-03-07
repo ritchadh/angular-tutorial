@@ -1,0 +1,60 @@
+<h1>
+    Template Driven Form 
+</h1>
+
+<div class="container">
+    <form #form="ngForm">
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" minlength="4" required #name="ngModel" ngModel/>
+
+        <div *ngIf="name.errors">
+
+         <div [hidden]="name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+
+        <div [hidden]="!name.errors.minlength"
+             class="alert alert-danger">
+          Name is invalid
+        </div>
+
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="oracleId">Oracle ID</label>
+        <input type="text" class="form-control" id="oracleId" name="id" #id="ngModel" pattern="^[0-9]*$" ngModel>
+
+       <div *ngIf="id.errors">
+
+         <div [hidden]="id.pristine"
+             class="alert alert-danger">
+          Oracle Id is required
+        </div>
+
+        <div [hidden]="!id.errors.pattern"
+             class="alert alert-danger">
+          Oracle Id is invalid
+        </div>
+
+        </div>
+
+
+
+      </div>
+
+      <div class="form-group">
+        <label for="designation">Designation</label>
+        <select class="form-control" id="desig" required name="designation">
+            <option *ngFor="let d of des;" [value]="d">{{d}}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+    
+    </form>
+</div>
